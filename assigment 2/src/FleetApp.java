@@ -19,12 +19,12 @@ public class FleetApp {
             sc.nextLine();
 
             switch (choice) {
-                case 1: printVehicles(); break;
-                case 2: addCar(); break;
-                case 3: addBus(); break;
-                case 4: showFees(); break;
-                case 5: showOlderThan(); break;
-                case 6: serviceAll(); break;
+                case 1: printVehicles();
+                case 2: addCar();
+                case 3: addBus();
+                case 4: showFees();
+                case 5: showOlderThan();
+                case 6: serviceAll();
                 case 7: return;
             }
         }
@@ -36,13 +36,24 @@ public class FleetApp {
     }
 
     private void addCar() {
-        System.out.print("Enter Model, Year, Price, Doors: ");
-        vehicles.add(new Car(sc.next(), sc.nextInt(), sc.nextDouble(), sc.nextInt()));
+        try {
+            System.out.print("Enter Model, Year, Price, Doors: ");
+            vehicles.add(new Car(sc.next(), sc.nextInt(), sc.nextDouble(), sc.nextInt()));
+            System.out.println("Car successfully added");
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Try again");
+            sc.nextLine();
+        }
     }
-
     private void addBus() {
-        System.out.print("Enter Model, Year, Price, Capacity: ");
-        vehicles.add(new Bus(sc.next(), sc.nextInt(), sc.nextDouble(), sc.nextInt()));
+        try {
+            System.out.print("Enter Model, Year, Price, Capacity: ");
+            vehicles.add(new Bus(sc.next(), sc.nextInt(), sc.nextDouble(), sc.nextInt()));
+            System.out.println("Bus successfully added");
+        }catch (InputMismatchException e){
+            System.out.println("Error; Try again");
+            sc.nextLine();
+        }
     }
 
     private void showFees() {
